@@ -1,0 +1,690 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Timeless Pins — Our Love Map ✨</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,600&family=Lato:wght@300;400;700&family=Dancing+Script:wght@600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --rose:#e8a0b0;
+  --rose-deep:#b85470;
+  --rose-mid:#d4728e;
+  --rose-pale:#fdeef3;
+  --petal:#fad6e2;
+  --blush:#fff5f8;
+  --cream:#fefaf8;
+  --ink:#3a1f2b;
+  --muted:#9c7080;
+  --border:#f0d5df;
+  --white:#ffffff;
+}
+
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{
+  font-family:'Lato',sans-serif;
+  background:var(--blush);
+  color:var(--ink);
+  line-height:1.7;
+  overflow-x:hidden;
+}
+
+/* ── HERO ── */
+.hero{
+  min-height:100vh;
+  background:linear-gradient(155deg,#fff0f5 0%,#fde8f0 30%,#fbd5e5 60%,#f7c8de 100%);
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  text-align:center;padding:60px 24px;
+  position:relative;overflow:hidden;
+}
+.hero::before{
+  content:'';position:absolute;inset:0;
+  background:radial-gradient(ellipse 80% 60% at 50% 0%,rgba(232,160,176,.35) 0%,transparent 70%),
+             radial-gradient(ellipse 50% 40% at 80% 80%,rgba(212,114,142,.2) 0%,transparent 60%),
+             radial-gradient(ellipse 40% 50% at 10% 60%,rgba(250,214,226,.4) 0%,transparent 60%);
+  pointer-events:none;
+}
+.hero-petals{position:absolute;inset:0;pointer-events:none;overflow:hidden;}
+.petal{
+  position:absolute;font-size:1.2rem;opacity:.18;
+  animation:drift linear infinite;
+}
+@keyframes drift{
+  0%{transform:translateY(-60px) rotate(0deg);opacity:0;}
+  10%{opacity:.18;}
+  90%{opacity:.12;}
+  100%{transform:translateY(110vh) rotate(360deg);opacity:0;}
+}
+.hero-badge{
+  display:inline-flex;align-items:center;gap:8px;
+  background:rgba(255,255,255,.7);backdrop-filter:blur(8px);
+  border:1.5px solid var(--border);border-radius:30px;
+  padding:7px 18px;font-size:.78rem;font-weight:700;
+  color:var(--rose-deep);letter-spacing:.8px;text-transform:uppercase;
+  margin-bottom:28px;
+  box-shadow:0 4px 20px rgba(184,84,112,.12);
+}
+.hero h1{
+  font-family:'Playfair Display',Georgia,serif;
+  font-size:clamp(2.8rem,8vw,5.5rem);
+  font-style:italic;
+  color:var(--rose-deep);
+  line-height:1.1;
+  margin-bottom:16px;
+  position:relative;z-index:1;
+}
+.hero h1 span{font-style:normal;font-weight:700;}
+.hero-script{
+  font-family:'Dancing Script',cursive;
+  font-size:clamp(1.3rem,3.5vw,2rem);
+  color:var(--rose-mid);
+  margin-bottom:32px;
+  opacity:.9;
+}
+.hero-desc{
+  max-width:560px;
+  font-size:1rem;color:var(--muted);
+  line-height:1.8;margin-bottom:44px;
+}
+.hero-arrow{
+  font-size:1.8rem;color:var(--rose);
+  animation:bob 2s ease-in-out infinite;
+}
+@keyframes bob{0%,100%{transform:translateY(0);}50%{transform:translateY(8px);}}
+
+/* ── SECTION ── */
+.section{
+  max-width:860px;margin:0 auto;
+  padding:70px 24px;
+}
+.section-divider{
+  text-align:center;padding:14px 0 0;
+  color:var(--border);font-size:1.2rem;letter-spacing:4px;
+}
+
+/* ── CHAPTER HEADING ── */
+.chapter{
+  display:flex;align-items:center;gap:14px;
+  margin-bottom:36px;
+}
+.chapter-num{
+  width:44px;height:44px;border-radius:50%;
+  background:linear-gradient(135deg,var(--rose),var(--rose-deep));
+  color:white;font-family:'Playfair Display',serif;
+  font-size:1rem;font-weight:700;
+  display:flex;align-items:center;justify-content:center;
+  flex-shrink:0;box-shadow:0 4px 16px rgba(184,84,112,.3);
+}
+.chapter h2{
+  font-family:'Playfair Display',Georgia,serif;
+  font-size:clamp(1.5rem,4vw,2.1rem);
+  font-style:italic;color:var(--rose-deep);
+  line-height:1.2;
+}
+
+/* ── FEATURE CARD ── */
+.feature-card{
+  background:var(--white);
+  border:1.5px solid var(--border);
+  border-radius:22px;
+  padding:28px 28px 24px;
+  margin-bottom:22px;
+  box-shadow:0 3px 20px rgba(184,84,112,.08);
+  position:relative;overflow:hidden;
+  transition:transform .2s,box-shadow .2s;
+}
+.feature-card:hover{transform:translateY(-3px);box-shadow:0 10px 36px rgba(184,84,112,.14);}
+.feature-card::before{
+  content:'';position:absolute;top:0;left:0;right:0;height:3px;
+  background:linear-gradient(90deg,var(--rose-pale),var(--rose),var(--rose-pale));
+}
+.feature-header{
+  display:flex;align-items:center;gap:14px;
+  margin-bottom:16px;
+}
+.feature-emoji{
+  width:52px;height:52px;border-radius:16px;
+  background:linear-gradient(135deg,var(--rose-pale),var(--petal));
+  display:flex;align-items:center;justify-content:center;
+  font-size:1.6rem;flex-shrink:0;
+  border:1.5px solid var(--border);
+  box-shadow:0 2px 10px rgba(184,84,112,.1);
+}
+.feature-title{
+  font-family:'Playfair Display',Georgia,serif;
+  font-size:1.25rem;font-style:italic;
+  color:var(--ink);line-height:1.2;
+}
+.feature-subtitle{
+  font-size:.75rem;font-weight:700;color:var(--rose-deep);
+  text-transform:uppercase;letter-spacing:.6px;margin-top:2px;
+}
+.feature-desc{
+  font-size:.93rem;color:#5a3545;line-height:1.75;
+  margin-bottom:16px;
+}
+.steps{list-style:none;display:flex;flex-direction:column;gap:9px;}
+.step{
+  display:flex;align-items:flex-start;gap:12px;
+  background:var(--rose-pale);border:1px solid var(--border);
+  border-radius:12px;padding:11px 14px;
+  font-size:.88rem;color:var(--ink);line-height:1.5;
+}
+.step-num{
+  width:22px;height:22px;border-radius:50%;
+  background:var(--rose-deep);color:white;
+  font-size:.7rem;font-weight:700;
+  display:flex;align-items:center;justify-content:center;
+  flex-shrink:0;margin-top:1px;
+}
+.step strong{color:var(--rose-deep);}
+.tip{
+  display:flex;align-items:flex-start;gap:10px;
+  background:linear-gradient(120deg,#fff8fb,#fdeef3);
+  border:1.5px dashed var(--rose);border-radius:12px;
+  padding:11px 14px;margin-top:14px;
+  font-size:.84rem;color:var(--muted);line-height:1.6;
+}
+.tip-icon{font-size:1.1rem;flex-shrink:0;}
+
+/* ── TWO-COL GRID ── */
+.two-col{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
+@media(max-width:600px){.two-col{grid-template-columns:1fr;}}
+
+/* ── PILL TAGS ── */
+.tags{display:flex;flex-wrap:wrap;gap:7px;margin-top:12px;}
+.tag{
+  display:inline-flex;align-items:center;gap:5px;
+  padding:4px 12px;border-radius:20px;
+  background:var(--rose-pale);border:1px solid var(--border);
+  font-size:.73rem;font-weight:700;color:var(--rose-deep);
+}
+
+/* ── COVER SPLASH (between chapters) ── */
+.splash{
+  background:linear-gradient(135deg,var(--rose-pale) 0%,var(--petal) 50%,var(--rose-pale) 100%);
+  border-top:1px solid var(--border);border-bottom:1px solid var(--border);
+  text-align:center;padding:56px 24px;
+  position:relative;overflow:hidden;
+}
+.splash::after{
+  content:'🌸';font-size:8rem;opacity:.07;
+  position:absolute;right:-20px;top:50%;transform:translateY(-50%);
+  pointer-events:none;
+}
+.splash-title{
+  font-family:'Dancing Script',cursive;
+  font-size:clamp(1.6rem,4vw,2.4rem);
+  color:var(--rose-deep);margin-bottom:8px;
+}
+.splash-sub{font-size:.92rem;color:var(--muted);max-width:480px;margin:0 auto;}
+
+/* ── QUICK REFERENCE TABLE ── */
+.ref-table{width:100%;border-collapse:collapse;margin-top:8px;}
+.ref-table th{
+  background:linear-gradient(90deg,var(--rose-pale),#fff0f4);
+  color:var(--rose-deep);font-size:.75rem;font-weight:700;
+  text-transform:uppercase;letter-spacing:.5px;
+  padding:11px 14px;text-align:left;
+  border-bottom:2px solid var(--border);
+}
+.ref-table th:first-child{border-radius:12px 0 0 0;}
+.ref-table th:last-child{border-radius:0 12px 0 0;}
+.ref-table td{
+  padding:10px 14px;font-size:.87rem;
+  border-bottom:1px solid var(--border);
+  color:var(--ink);vertical-align:top;
+  background:var(--white);
+}
+.ref-table tr:last-child td{border-bottom:none;}
+.ref-table tr:last-child td:first-child{border-radius:0 0 0 12px;}
+.ref-table tr:last-child td:last-child{border-radius:0 0 12px 0;}
+.ref-table tr:hover td{background:#fffafc;}
+.ref-table-wrap{border:1.5px solid var(--border);border-radius:14px;overflow:hidden;box-shadow:0 3px 18px rgba(184,84,112,.07);}
+
+/* ── LOVE NOTE FOOTER ── */
+.footer{
+  background:linear-gradient(155deg,#fce8f0,#f9d8e8 50%,#fce8f0);
+  border-top:1.5px solid var(--border);
+  text-align:center;padding:70px 24px 50px;
+  position:relative;overflow:hidden;
+}
+.footer::before{
+  content:'';position:absolute;inset:0;
+  background:radial-gradient(ellipse 60% 50% at 50% 0%,rgba(232,160,176,.3),transparent);
+  pointer-events:none;
+}
+.footer-script{
+  font-family:'Dancing Script',cursive;
+  font-size:clamp(2rem,5vw,3.2rem);
+  color:var(--rose-deep);
+  margin-bottom:14px;line-height:1.2;
+}
+.footer-note{
+  font-size:.92rem;color:var(--muted);
+  max-width:440px;margin:0 auto 32px;
+  line-height:1.8;
+}
+.footer-hearts{font-size:1.5rem;letter-spacing:8px;opacity:.6;}
+
+/* ── SCROLL FADE-IN ── */
+.fade-in{opacity:0;transform:translateY(22px);transition:opacity .55s ease,transform .55s ease;}
+.fade-in.visible{opacity:1;transform:translateY(0);}
+
+/* ── MOBILE ── */
+@media(max-width:480px){
+  .feature-card{padding:20px 16px 18px;}
+  .feature-emoji{width:44px;height:44px;font-size:1.3rem;border-radius:13px;}
+  .section{padding:50px 16px;}
+}
+</style>
+</head>
+<body>
+
+<!-- Drifting petals -->
+<div class="hero-petals" id="petals"></div>
+
+<!-- ══ HERO ══ -->
+<section class="hero">
+  <div class="hero-badge">💌 For Your Eyes Only</div>
+  <h1>Timeless<br/><span>Pins</span></h1>
+  <div class="hero-script">Our little map of us 🌸</div>
+  <p class="hero-desc">
+    A beautiful, interactive map built just for the two of us — to pin our memories, trace our journeys, and hold onto every moment we've shared together.
+  </p>
+  <div class="hero-arrow">↓</div>
+</section>
+
+<!-- ══ INTRO ══ -->
+<div class="section fade-in">
+  <div class="chapter">
+    <div class="chapter-num">✦</div>
+    <h2>Before You Begin</h2>
+  </div>
+  <div class="feature-card">
+    <div class="feature-header">
+      <div class="feature-emoji">🗺️</div>
+      <div>
+        <div class="feature-title">What is Timeless Pins?</div>
+        <div class="feature-subtitle">Your relationship on a map</div>
+      </div>
+    </div>
+    <p class="feature-desc">
+      Timeless Pins is a private, interactive map made just for us. Every place we've been together, every song that reminds us of each other, every route we've walked — it all lives here, beautifully pinned onto the world.
+    </p>
+    <div class="tags">
+      <span class="tag">📍 Love Coordinates</span>
+      <span class="tag">⭐ Love Trails</span>
+      <span class="tag">💗 Sweet Spots</span>
+      <span class="tag">🧸 Snuggle Spots</span>
+      <span class="tag">🗺️ Journey Map</span>
+      <span class="tag">🌿 Memory Garden</span>
+      <span class="tag">🖼️ Pin Board</span>
+    </div>
+  </div>
+  <div class="feature-card">
+    <div class="feature-header">
+      <div class="feature-emoji">📱</div>
+      <div>
+        <div class="feature-title">Opening the Map</div>
+        <div class="feature-subtitle">Getting started</div>
+      </div>
+    </div>
+    <ul class="steps">
+      <li class="step"><span class="step-num">1</span><span>Open <strong>timeless-pins.vercel.app</strong> in your phone browser or on a computer.</span></li>
+      <li class="step"><span class="step-num">2</span><span>Wait for the pink loading screen to fade — your memories will appear as pins on the map automatically.</span></li>
+      <li class="step"><span class="step-num">3</span><span>The map will <strong>auto-zoom</strong> to fit all existing pins so you see everything at once.</span></li>
+      <li class="step"><span class="step-num">4</span><span>Use two fingers to zoom, or pinch on mobile. Drag to pan around the map.</span></li>
+    </ul>
+    <div class="tip"><span class="tip-icon">💡</span>The toolbar at the top has all the buttons you need. On mobile, scroll the toolbar sideways if buttons are cut off.</div>
+  </div>
+</div>
+
+<div class="section-divider">· · · · · ·</div>
+
+<!-- ══ CHAPTER 1: LOVE COORDINATES ══ -->
+<div class="section fade-in">
+  <div class="chapter">
+    <div class="chapter-num">1</div>
+    <h2>Love Coordinates 📍</h2>
+  </div>
+  <div class="feature-card">
+    <div class="feature-header">
+      <div class="feature-emoji">📍</div>
+      <div>
+        <div class="feature-title">Memory Pins</div>
+        <div class="feature-subtitle">The heart of the map</div>
+      </div>
+    </div>
+    <p class="feature-desc">
+      Love Coordinates are our main memory markers — the places that meant something. Each one can hold a name, a date, photos, and a description. They appear as beautiful rose-coloured pins on the map.
+    </p>
+    <ul class="steps">
+      <li class="step"><span class="step-num">1</span><span>Tap the <strong>📍 button</strong> in the top toolbar. The cursor changes to a crosshair.</span></li>
+      <li class="step"><span class="step-num">2</span><span>Tap anywhere on the map where you want to place the memory. A form will slide up.</span></li>
+      <li class="step"><span class="step-num">3</span><span>Fill in the <strong>Memory Name</strong> (required), Location, Date, and Description.</span></li>
+      <li class="step"><span class="step-num">4</span><span>Tap the photo area to <strong>add photos</strong> — you can add as many as you like!</span></li>
+      <li class="step"><span class="step-num">5</span><span>Tap <strong>Save Memory 💕</strong> and watch your pin appear on the map.</span></li>
+    </ul>
+    <div class="tip"><span class="tip-icon">🔍</span>Zoom in close (zoom level 14+) and the pin will show its name label floating below it.</div>
+  </div>
+  <div class="feature-card">
+    <div class="feature-header">
+      <div class="feature-emoji">👆</div>
+      <div>
+        <div class="feature-title">Viewing a Memory</div>
+        <div class="feature-subtitle">Reliving the moment</div>
+      </div>
+    </div>
+    <ul class="steps">
+      <li class="step"><span class="step-num">1</span><span>Tap any <strong>rose-coloured pin</strong> on the map to open its detail panel.</span></li>
+      <li class="step"><span class="step-num">2</span><span>Scroll through the photos — <strong>tap any photo</strong> to open it full screen.</span></li>
+      <li class="step"><span class="step-num">3</span><span>In full screen, use the <strong>‹ ›</strong> arrows flanking the title to browse all photos from that memory.</span></li>
+      <li class="step"><span class="step-num">4</span><span>Tap the <strong>✕</strong> or tap outside the panel to close it.</span></li>
+    </ul>
+  </div>
+</div>
+
+<!-- ══ CHAPTER 2: LOVE TRAILS ══ -->
+<div class="section fade-in">
+  <div class="chapter">
+    <div class="chapter-num">2</div>
+    <h2>Love Trails ⭐</h2>
+  </div>
+  <div class="feature-card">
+    <div class="feature-header">
+      <div class="feature-emoji">⭐</div>
+      <div>
+        <div class="feature-title">Our Journeys</div>
+        <div class="feature-subtitle">Draw paths we've walked together</div>
+      </div>
+    </div>
+    <p class="feature-desc">
+      Love Trails let you draw any route or path on the map — the walk to the café, the road trip route, the way home. You draw it yourself, tap by tap, exactly how you remember it.
+    </p>
+    <ul class="steps">
+      <li class="step"><span class="step-num">1</span><span>Tap the <strong>⭐ button</strong> in the toolbar. A drawer slides up from the bottom.</span></li>
+      <li class="step"><span class="step-num">2</span><span>Enter a <strong>Trail Name</strong> and optional description. Pick a <strong>colour</strong> for the trail.</span></li>
+      <li class="step"><span class="step-num">3</span><span>Tap <strong>"Draw on Map 🗺️"</strong> — the drawer closes and a status bar appears at the bottom.</span></li>
+      <li class="step"><span class="step-num">4</span><span><strong>Tap the map</strong> point by point to trace your path. Each tap adds a dot and extends the line.</span></li>
+      <li class="step"><span class="step-num">5</span><span>Made a mistake? Tap <strong>↩ Undo</strong> to remove the last point.</span></li>
+      <li class="step"><span class="step-num">6</span><span>When you're happy with the path, tap <strong>Save Trail ⭐</strong>.</span></li>
+    </ul>
+    <div class="tip"><span class="tip-icon">✨</span>Trails are hidden by default. Tap the <strong>✨ Sparkles</strong> button in the toolbar to make trail stars appear on the map. Then tap a star to show/hide that trail's path.</div>
+  </div>
+</div>
+
+<div class="section-divider">· · · · · ·</div>
+
+<!-- ══ CHAPTER 3: SWEET SPOTS ══ -->
+<div class="section fade-in">
+  <div class="chapter">
+    <div class="chapter-num">3</div>
+    <h2>Sweet Spots 💗</h2>
+  </div>
+  <div class="feature-card">
+    <div class="feature-header">
+      <div class="feature-emoji">💗</div>
+      <div>
+        <div class="feature-title">Special Places</div>
+        <div class="feature-subtitle">Quick meaningful markers</div>
+      </div>
+    </div>
+    <p class="feature-desc">
+      Sweet Spots are simple heart markers for places that are special — no photos needed, just a name and maybe a small note. They float on the map as animated pink hearts.
+    </p>
+    <ul class="steps">
+      <li class="step"><span class="step-num">1</span><span>Tap the <strong>💗 button</strong> in the toolbar.</span></li>
+      <li class="step"><span class="step-num">2</span><span>Tap the map where you want to place the heart.</span></li>
+      <li class="step"><span class="step-num">3</span><span>Enter a <strong>Title</strong> (required) and optional description.</span></li>
+      <li class="step"><span class="step-num">4</span><span>Tap <strong>Pin It 💗</strong> to save it.</span></li>
+    </ul>
+    <div class="tip"><span class="tip-icon">💌</span>Sweet Spots are perfect for "this is where we had our first date" or "this coffee shop is our spot" — quick and sentimental.</div>
+  </div>
+</div>
+
+<!-- ══ CHAPTER 4: SNUGGLE SPOTS ══ -->
+<div class="section fade-in">
+  <div class="chapter">
+    <div class="chapter-num">4</div>
+    <h2>Snuggle Spots 🧸</h2>
+  </div>
+  <div class="feature-card">
+    <div class="feature-header">
+      <div class="feature-emoji">🧸</div>
+      <div>
+        <div class="feature-title">Music + Memories</div>
+        <div class="feature-subtitle">Places with a soundtrack</div>
+      </div>
+    </div>
+    <p class="feature-desc">
+      Snuggle Spots are memory pins linked to a song. Add photos, and the first one becomes the song cover art. Include a Spotify or YouTube link, and a play button appears over the cover photo.
+    </p>
+    <ul class="steps">
+      <li class="step"><span class="step-num">1</span><span>Tap the <strong>🧸 button</strong> in the toolbar and tap the map location.</span></li>
+      <li class="step"><span class="step-num">2</span><span>Enter the <strong>Place Name</strong> (required).</span></li>
+      <li class="step"><span class="step-num">3</span><span>Add <strong>photos</strong> — the <em>first photo</em> will be used as the song cover art, so pick something beautiful!</span></li>
+      <li class="step"><span class="step-num">4</span><span>Paste a <strong>Song Link</strong> (Spotify, YouTube, etc.) — this is optional but makes it magical.</span></li>
+      <li class="step"><span class="step-num">5</span><span>Tap <strong>Save Spot 🧸</strong>.</span></li>
+    </ul>
+    <div class="tip"><span class="tip-icon">🎵</span>When viewing a Snuggle Spot, tap the link button on the cover photo to open the song directly.</div>
+  </div>
+</div>
+
+<div class="splash fade-in">
+  <div class="splash-title">Every place has a story. Every story deserves a pin.</div>
+  <p class="splash-sub">The map is yours to fill — one memory at a time 🌸</p>
+</div>
+
+<!-- ══ CHAPTER 5: SEARCH ══ -->
+<div class="section fade-in">
+  <div class="chapter">
+    <div class="chapter-num">5</div>
+    <h2>Searching for a Place 🔍</h2>
+  </div>
+  <div class="feature-card">
+    <div class="feature-header">
+      <div class="feature-emoji">🔍</div>
+      <div>
+        <div class="feature-title">The Search Bar</div>
+        <div class="feature-subtitle">Find any place in the world</div>
+      </div>
+    </div>
+    <p class="feature-desc">
+      The search bar at the top of the map lets you find any city, landmark, restaurant or street in the world — then add a pin right there.
+    </p>
+    <ul class="steps">
+      <li class="step"><span class="step-num">1</span><span>Tap the <strong>search bar</strong> and type any place name.</span></li>
+      <li class="step"><span class="step-num">2</span><span>Select a result — the map will fly to that location and mark it with a temporary circle.</span></li>
+      <li class="step"><span class="step-num">3</span><span>A small prompt appears: <strong>"Would you like to add a pin here?"</strong></span></li>
+      <li class="step"><span class="step-num">4</span><span>Choose which type of pin to add — or tap "Not now" to just explore.</span></li>
+    </ul>
+  </div>
+</div>
+
+<!-- ══ CHAPTER 6: LAYERS ══ -->
+<div class="section fade-in">
+  <div class="chapter">
+    <div class="chapter-num">6</div>
+    <h2>Layers & Overlays 🗺️🌿✨</h2>
+  </div>
+  <p style="color:var(--muted);font-size:.92rem;margin-bottom:28px;line-height:1.7;">
+    These three magical toggles in the toolbar add extra layers of meaning to the map. Each one is a different way to see our story.
+  </p>
+
+  <div class="two-col">
+    <div class="feature-card">
+      <div class="feature-header">
+        <div class="feature-emoji">🗺️</div>
+        <div>
+          <div class="feature-title">Journey Map</div>
+          <div class="feature-subtitle">Our timeline</div>
+        </div>
+      </div>
+      <p class="feature-desc">Connects all Love Coordinates that have dates, in chronological order, with a dashed red line — showing the story of our relationship as a path through time.</p>
+      <ul class="steps">
+        <li class="step"><span class="step-num">→</span><span>Tap <strong>🗺️ Journey</strong> in the toolbar to toggle it on or off.</span></li>
+      </ul>
+      <div class="tip"><span class="tip-icon">📅</span>Works only when pins have a date saved.</div>
+    </div>
+
+    <div class="feature-card">
+      <div class="feature-header">
+        <div class="feature-emoji">🌿</div>
+        <div>
+          <div class="feature-title">Memory Garden</div>
+          <div class="feature-subtitle">Our favourite areas</div>
+        </div>
+      </div>
+      <p class="feature-desc">Draws soft pink circles around areas where we have multiple Love Coordinates close together — showing where our most cherished places cluster.</p>
+      <ul class="steps">
+        <li class="step"><span class="step-num">→</span><span>Tap <strong>🌿 Garden</strong> in the toolbar to toggle it on or off.</span></li>
+      </ul>
+      <div class="tip"><span class="tip-icon">🌸</span>Zoom into the map first for tighter, more precise clusters.</div>
+    </div>
+  </div>
+
+  <div class="feature-card">
+    <div class="feature-header">
+      <div class="feature-emoji">✨</div>
+      <div>
+        <div class="feature-title">Sparkles — Trail Stars</div>
+        <div class="feature-subtitle">Reveal love trails</div>
+      </div>
+    </div>
+    <p class="feature-desc">
+      Trail stars are invisible by default so they don't clutter the map. Tap Sparkles to reveal all trail stars, then tap any star to show or hide that specific trail's path.
+    </p>
+    <ul class="steps">
+      <li class="step"><span class="step-num">1</span><span>Tap <strong>✨ Sparkles</strong> in the toolbar — all trail stars appear on the map.</span></li>
+      <li class="step"><span class="step-num">2</span><span>Tap any <strong>⭐ star</strong> to toggle that trail's path on and off.</span></li>
+      <li class="step"><span class="step-num">3</span><span>Tap <strong>✨ Sparkles</strong> again to hide all stars and all paths.</span></li>
+    </ul>
+  </div>
+</div>
+
+<div class="section-divider">· · · · · ·</div>
+
+<!-- ══ CHAPTER 7: PINDOM ══ -->
+<div class="section fade-in">
+  <div class="chapter">
+    <div class="chapter-num">7</div>
+    <h2>Memory List (PinDom) 📋</h2>
+  </div>
+  <div class="feature-card">
+    <div class="feature-header">
+      <div class="feature-emoji">📋</div>
+      <div>
+        <div class="feature-title">All Our Memories in a List</div>
+        <div class="feature-subtitle">Navigate to any pin instantly</div>
+      </div>
+    </div>
+    <p class="feature-desc">
+      PinDom is a sidebar list of every single pin on the map — searchable by type, with instant fly-to navigation.
+    </p>
+    <ul class="steps">
+      <li class="step"><span class="step-num">1</span><span>Tap the <strong>📋 button</strong> in the toolbar to open the Memory List sidebar.</span></li>
+      <li class="step"><span class="step-num">2</span><span>Use the <strong>filter pills</strong> at the top (All / Love / Sweet / Snuggle / Trail) to filter by type.</span></li>
+      <li class="step"><span class="step-num">3</span><span>Tap any item in the list — the map will <strong>smoothly fly</strong> to that pin's location.</span></li>
+      <li class="step"><span class="step-num">4</span><span>Tap the <strong>📋 button</strong> again or tap outside to close the sidebar.</span></li>
+    </ul>
+  </div>
+</div>
+
+<!-- ══ CHAPTER 8: PIN BOARD ══ -->
+<div class="section fade-in">
+  <div class="chapter">
+    <div class="chapter-num">8</div>
+    <h2>Our Pin Board 🖼️</h2>
+  </div>
+  <div class="feature-card">
+    <div class="feature-header">
+      <div class="feature-emoji">🖼️</div>
+      <div>
+        <div class="feature-title">Pinterest-Style Photo Gallery</div>
+        <div class="feature-subtitle">Every photo, beautifully displayed</div>
+      </div>
+    </div>
+    <p class="feature-desc">
+      The Pin Board collects every photo from every Love Coordinate and displays them in a beautiful Pinterest-style masonry layout — different heights, natural flow, gorgeous to scroll through.
+    </p>
+    <ul class="steps">
+      <li class="step"><span class="step-num">1</span><span>Tap the <strong>🖼️ button</strong> in the toolbar to open the Pin Board.</span></li>
+      <li class="step"><span class="step-num">2</span><span>Scroll through your photos — they arrange themselves in a natural, staggered layout.</span></li>
+      <li class="step"><span class="step-num">3</span><span>Tap any photo to open it <strong>full screen</strong> in the lightbox.</span></li>
+      <li class="step"><span class="step-num">4</span><span>In the lightbox, use the <strong>‹ name ›</strong> arrows to browse more photos, and see <strong>1/3</strong> style counters.</span></li>
+      <li class="step"><span class="step-num">5</span><span>Tap <strong>"📍 Take me to the Love Coordinate"</strong> to fly back to that pin on the map.</span></li>
+    </ul>
+    <div class="tip"><span class="tip-icon">✈️</span>This is the best way to relive memories visually — just sit and scroll through our photos together.</div>
+  </div>
+</div>
+
+<div class="section-divider">· · · · · ·</div>
+
+<!-- ══ QUICK REFERENCE ══ -->
+<div class="section fade-in">
+  <div class="chapter">
+    <div class="chapter-num">✦</div>
+    <h2>Quick Reference</h2>
+  </div>
+  <div class="ref-table-wrap">
+    <table class="ref-table">
+      <thead>
+        <tr>
+          <th>Button</th>
+          <th>Name</th>
+          <th>What it does</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>📍</td><td><strong>Love Coordinate</strong></td><td>Add a memory pin with photos, date & description</td></tr>
+        <tr><td>💗</td><td><strong>Sweet Spot</strong></td><td>Add a simple heart marker for a special place</td></tr>
+        <tr><td>🧸</td><td><strong>Snuggle Spot</strong></td><td>Add a memory with song cover art and a music link</td></tr>
+        <tr><td>⭐</td><td><strong>Love Trail</strong></td><td>Draw a custom path on the map, point by point</td></tr>
+        <tr><td>🗺️</td><td><strong>Journey</strong></td><td>Toggle dashed lines connecting memories by date</td></tr>
+        <tr><td>🌿</td><td><strong>Garden</strong></td><td>Toggle soft circles around memory clusters</td></tr>
+        <tr><td>✨</td><td><strong>Sparkles</strong></td><td>Show/hide trail stars on the map</td></tr>
+        <tr><td>📋</td><td><strong>Memory List</strong></td><td>Open sidebar with all pins — tap to fly to any one</td></tr>
+        <tr><td>🖼️</td><td><strong>Pin Board</strong></td><td>Open Pinterest-style gallery of all photos</td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- ══ FOOTER ══ -->
+<div class="footer">
+  <div class="footer-script">Made with love, just for you 🌸</div>
+  <p class="footer-note">
+    Every pin you place, every trail you draw, every photo you add — it all stays here, waiting to be revisited whenever you want to feel close to our story.
+  </p>
+  <div class="footer-hearts">💕 🌸 💕</div>
+</div>
+
+<script>
+// Drifting petals
+(function(){
+  const petals=['🌸','🌺','🌷','✿','❀','💮'];
+  const container=document.getElementById('petals');
+  for(let i=0;i<22;i++){
+    const el=document.createElement('div');
+    el.className='petal';
+    el.textContent=petals[Math.floor(Math.random()*petals.length)];
+    el.style.left=Math.random()*100+'vw';
+    el.style.top=(Math.random()*-80-10)+'px';
+    el.style.fontSize=(0.7+Math.random()*0.8)+'rem';
+    el.style.animationDuration=(8+Math.random()*14)+'s';
+    el.style.animationDelay=(Math.random()*10)+'s';
+    container.appendChild(el);
+  }
+})();
+
+// Scroll fade-in
+const obs=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible');});
+},{threshold:.1});
+document.querySelectorAll('.fade-in').forEach(el=>obs.observe(el));
+</script>
+</body>
+</html>
